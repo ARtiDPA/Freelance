@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.passwordView {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -35px;
+  background: url(../../../shared/images/eye.png);
+  background-size: cover;
+}
+
+.password-hint {
+  top: 6px;
+  left: 60px;
+  position: absolute;
+  z-index: 1;
+}
+.password-hint::after {
+  position: absolute;
+  top: 0;
+  left: -52px;
+  padding: 8px;
+  background-color: #ddd;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: normal;
+  white-space: pre;
+}
+.password-hint:hover::after {
+  content: "Пароль должен содержать:\a- Только латинские буквы\a- Минимум 8 символов\a- Минимум 1 заглавную и 1 маленькую буквы\a- Минимум 1 спец. символ:  !@#$%^&?*_+=";
+}/*# sourceMappingURL=index.css.map */
