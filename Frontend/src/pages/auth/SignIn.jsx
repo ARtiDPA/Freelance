@@ -13,19 +13,11 @@ export default function SignIn() {
         }
     }
 
-    let auth = (login, password) => {
-        let data = {
-            login: login,
-            password: password
-        }
-        console.log(JSON.stringify(data))
-    }
-
     return (
         <div className="h-[calc(100svh-64px)] items-center flex justify-center">
             <div className="w-[360px] max-w-full flex flex-col gap-3 px-9">
                 <h1 className="text-4xl font-bold text-center">Вход</h1>
-                <form action="" autoComplete="off" className="flex flex-col gap-2">
+                <form autoComplete="off" className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
                         <label htmlFor="login" className="items-center flex justify-between">Логин
                             <input
@@ -57,7 +49,7 @@ export default function SignIn() {
                                 <a href="/SignUp" className="text-sm text-blue-600 hover:text-blue-800">Нет аккаунта?</a>
                                 <a href="#!" className="text-sm text-blue-600 hover:text-blue-800 font-bold">Забыли пароль?</a>
                             </div>
-                            <button type="button" onClick={auth} id="registerButton" className="border-4 rounded-lg py-2 px-4">Войти</button>
+                            <button type="button" id="registerButton" className="border-4 rounded-lg py-2 px-4">Войти</button>
                         </div>
                         <div className="">
                         </div>
