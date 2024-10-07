@@ -16,10 +16,7 @@ export default function SignUp() {
     }
     
     function checkPassword() {
-        let name = document.getElementById("name"),
-            surname = document.getElementById("surname"),
-            login = document.getElementById("login"),
-            password = document.getElementById("setPassword"),
+        let password = document.getElementById("setPassword"),
             passwordAgain = document.getElementById("setPasswordAgain");
 
         if (password.value !== passwordAgain.value) {
@@ -29,28 +26,17 @@ export default function SignUp() {
         } else if (password.value === passwordAgain.value) {
             passwordAgain.setCustomValidity("")
         }
-
-        registration(login.value, password.value, name.value, surname.value)
-    }
-
-    function registration(login, password, name, surname) {
-        let data = {
-            login: login,
-            password: password,
-            name: name,
-            surname: surname
-        }
-        console.log(JSON.stringify(data))
     }
 
     return (
         <div className="h-[calc(100svh-64px)] items-center flex justify-center">
             <div className="w-[360px] max-w-full flex flex-col gap-4 px-9">
                 <h1 className="text-4xl font-bold text-center">Регистрация</h1>
-                <form name="formReg" autoComplete="off" className="flex flex-col gap-3">
+                <form action="http://localhost:5000/api/users/register" method="POST" autoComplete="off" className="flex flex-col gap-3">
                     <div className="flex flex-col gap-1">
                         <label htmlFor="name" className="items-center flex justify-between">Имя
                             <input
+                                defaultValue="John"
                                 className="max-w-40 border-2 px-px valid:border-green-400 rounded-lg invalid:border-red-300"
                                 required
                                 type="text"
@@ -64,6 +50,7 @@ export default function SignUp() {
                         </label>
                         <label htmlFor="surname" className="items-center flex justify-between">Фамилия
                             <input
+                                defaultValue="Smith"
                                 className="max-w-40 border-2 px-px valid:border-green-400 rounded-lg invalid:border-red-300"
                                 required
                                 type="text"
@@ -76,6 +63,7 @@ export default function SignUp() {
                         </label>
                         <label htmlFor="login" className="items-center flex justify-between">Логин
                             <input
+                                defaultValue="mylogin11"
                                 className="w-40 border-2 px-px valid:border-green-400 rounded-lg invalid:border-red-300"
                                 required
                                 type="text"
@@ -92,6 +80,7 @@ export default function SignUp() {
                                     <img src={hint} className="opacity-75 bg-cover w-4 h-4" alt="" />
                                 </div>
                                 <input
+                                    defaultValue="Ab0b@Lox"
                                     className="max-w-40 border-2 px-px rounded-lg valid:border-green-400 invalid:border-red-300"
                                     required
                                     type="password"
@@ -105,6 +94,7 @@ export default function SignUp() {
                             <div type="button" className="passwordView" onClick={passwordView}></div>
                             <label htmlFor="setPasswordAgain" className="items-center flex justify-between">Повтор пароля
                                 <input
+                                    defaultValue="Ab0b@Lox"
                                     className="max-w-40 border-2 px-px rounded-lg valid:border-green-400 invalid:border-red-300"
                                     required
                                     type="password"
@@ -120,7 +110,7 @@ export default function SignUp() {
                         <div className="flex items-center">
                             <a href="/SignIn" className="text-sm text-blue-600 hover:text-blue-800">Уже есть аккаунт?</a>
                         </div>
-                        <button type="button" onClick={checkPassword} id="registerButton" className="border-4 rounded-lg p-2 px-4">Создать аккаунт</button>
+                        <button onClick={checkPassword} id="registerButton" className="border-4 rounded-lg p-2 px-4">Создать аккаунт</button>
                     </div>
                 </form>
             </div>
